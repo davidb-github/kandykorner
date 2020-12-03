@@ -10,7 +10,9 @@ export const LocationContext = React.createContext()
  This component establishes what data can be used.
  */
 export const LocationProvider = (props) => {
+    // "My component has its own state to maintain. Therefore, I will use the State hook to store it."
     const [locations, setLocations] = useState([])
+    
 
     const getLocations = () => {
         return fetch("http://localhost:8088/locations")
@@ -27,7 +29,7 @@ export const LocationProvider = (props) => {
     */
     return (
         <LocationContext.Provider value={{
-            locations, addLocation, getLocations
+            locations, getLocations
         }}>
             {props.children}
         </LocationContext.Provider>
